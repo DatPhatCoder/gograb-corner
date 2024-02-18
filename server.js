@@ -4,6 +4,8 @@ const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const vendingMachineRoutes = require('./routes/vendingMachineRoutes');
 const inventoryRoutes = require('./routes/inventoryRoutes');
+const locationRoutes = require('./routes/locationRoutes')
+const paymentRoutes = require('./routes/paymentRoutes')
 
 app.use(express.json());
 
