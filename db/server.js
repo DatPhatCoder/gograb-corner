@@ -1,10 +1,6 @@
 const express = require('express');
+const { Pool } = require('pg'); // Assuming PostgreSQL
 const app = express();
-
-// Middleware to parse JSON bodies
-app.use(express.json());
-
-////////////////////// Server Setup ////////////////////////
 
 // Database connection pool
 const pool = new Pool({
@@ -14,8 +10,14 @@ const pool = new Pool({
     password: 'your_db_password',
     port: 'your_db_port',
   });
-  
-  app.use(express.json());
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+////////////////////// Server Setup ////////////////////////
+
+
+
   
   // Route handler for getting inventory
   app.get('/api/inventory', async (req, res) => {
