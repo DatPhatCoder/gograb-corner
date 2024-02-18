@@ -1,5 +1,7 @@
 //demo - authRoutes - brief idea of what needs to be done with each module
 
+//use 3rd party api for google login
+
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
