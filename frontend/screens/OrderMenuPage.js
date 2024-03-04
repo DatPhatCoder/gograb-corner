@@ -101,19 +101,18 @@ const products = [
     },
     checkoutButtonText: {
       fontSize: 18,
-      color: '#4B9CD3', // Adjust the color to match your theme
+      color: '#4B9CD3',
       fontWeight: 'bold',
     },
     bottomNav: {
       flexDirection: 'row',
       justifyContent: 'space-evenly',
-      backgroundColor: '#2e3bb0', // Same as the header background color
+      backgroundColor: '#2e3bb0',
       paddingVertical: 10,
     },
     navIcon: {
       width: 30,
       height: 30,
-      // Adjust the size as needed
     },
 title:{
     justifyContent: 'center',
