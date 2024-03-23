@@ -12,9 +12,9 @@ app.use(express.json());
 
 // Use the modular routes for different functionalities
 app.use(authRoutes);
-app.use(userRoutes);
-app.use(vendingMachineRoutes);
-app.use(inventoryRoutes);
+// app.use(userRoutes);
+// app.use(vendingMachineRoutes);
+// app.use(inventoryRoutes);
 
 // Route for Home
 app.get('/', (req, res) => {
