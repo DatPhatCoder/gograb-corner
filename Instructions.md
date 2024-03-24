@@ -58,3 +58,8 @@ create table transactions (
 );
 
     
+## Open questions
+
+1. How to handle payments?
+2. What are the details of the location features? Does it even concern the backend? -- Im not sure about that...
+3. Do I even need the userController? guess we'll discuss the architecture in-depth later
