@@ -1,5 +1,12 @@
-// add, remove, update, display
+/* 
+Input: VendingMachineID, ProductID, Quantity
+Output: Dispense product
 
+add & remove & display (Admin only), update (system only) 
+
+For calling update() for the checkout. https://stackoverflow.com/a/38206334/5728614
+
+*/
 const foo = async (req, res) => {
     try {
         const { email, password } = req.query;

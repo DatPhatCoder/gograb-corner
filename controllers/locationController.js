@@ -1,3 +1,11 @@
+/*
+Input:
+Output:
+
+For getting location data for the front end. Not sure if needed
+
+*/
+
 const foo = async (req, res) => {
     try {
         const { email, password } = req.query;

@@ -19,6 +19,8 @@ app.use(locationRoutes);
 app.use(paymentRoutes);
 app.use(checkoutRoutes);
 
+// TODO Handle cors as needed
+
 // Route for Home
 app.get('/', (req, res) => {
     res.send('Welcome to GoGrab Corner!');

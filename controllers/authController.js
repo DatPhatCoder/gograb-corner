@@ -1,9 +1,18 @@
-//demo - authController - brief idea of what needs to be done with each module
+/*
+Input:
+Output:
 
-// Import the database pool if you're using PostgreSQL
-//const pool = require('../db/db'); // TODO - Uncomment this line when you have the db setup
+For getting location data for the front end. Not sure if needed
 
-// Assuming you're using bcrypt for password hashing
+demo - authController - brief idea of what needs to be done with each module
+
+Import the database pool if you're using PostgreSQL
+const pool = require('../db/db'); // TODO - Uncomment this line when you have the db setup
+
+Assuming you're using bcrypt for password hashing
+
+*/
+
 const bcrypt = require('bcrypt');
 
 const signup = async (req, res) => {

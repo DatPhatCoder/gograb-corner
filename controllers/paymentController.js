@@ -1,3 +1,8 @@
+/*
+Input:
+Output:
+
+*/
 const foo = async (req, res) => {
     try {
         const { email, password } = req.query;
