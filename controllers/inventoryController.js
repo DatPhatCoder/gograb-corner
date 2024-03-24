@@ -1,3 +1,5 @@
+// add, remove, update, display
+
 const foo = async (req, res) => {
     try {
         const { email, password } = req.query;
