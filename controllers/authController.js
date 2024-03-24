@@ -8,48 +8,59 @@ const bcrypt = require('bcrypt');
 
 const signup = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        
+        const { email, password } = req.query;
+        console.log("Header Prams:" + JSON.stringify(req.query));
+        console.log("Body Prams:" + JSON.stringify(req.body));
+
         // Hash the password
-        const salt = await bcrypt.genSalt(10);
+        const salt = 11;
         const hashedPassword = await bcrypt.hash(password, salt);
-        
+
         // Insert the new user into the database
-        const result = await pool.query(
-            'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email',
-            [email, hashedPassword]
-        );
-        
+        // const result = await pool.query(
+        //     'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email',
+        //     [email, hashedPassword]
+        // );
+        console.log("Pretend to add the user to the database");
+
         // Send back the new user's ID and email
-        res.status(201).json(result.rows[0]);
+        res.status(201).json({
+            message: 'User created successfully',
+            data: { "email": email, "password": password, "hashedPassword": hashedPassword }
+        });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json({ message: 'Internal Server Error on /signup' });
     }
 };
 
 const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        
+        const { email, password } = req.query;
+        console.log("Header Prams:" + JSON.stringify(req.query));
+        console.log("Body Prams:" + JSON.stringify(req.body));
+
         // Check if the user exists
-        const user = await pool.query(
-            'SELECT * FROM users WHERE email = $1',
-            [email]
-        );
-        
-        if (user.rows.length === 0) {
-            return res.status(400).json({ message: 'Invalid credentials' });
-        }
-        
+        // const user = await pool.query(
+        //     'SELECT * FROM users WHERE email = $1',
+        //     [email]
+        // );
+        // if (user.rows.length === 0) {
+        //     return res.status(400).json({ message: 'No Records found' });
+        // }
+        console.log("Pretend to retrieve the user from the database");
+        const retrievedPassword = "foobar";
+
         // Check if the password is correct
-        const validPassword = await bcrypt.compare(password, user.rows[0].password);
+        // https://snyk.io/advisor/npm-package/bcrypt/functions/bcrypt.compare
+        const validPassword = await bcrypt.compare(password, retrievedPassword);
         if (!validPassword) {
-            return res.status(400).json({ message: 'Invalid credentials' });
+            return res.status(401).json({ message: 'Invalid credentials' });
         }
-        
+
         // User is authenticated, perhaps generate a token or start a session here
-        
+        // TODO use jwt or sessions to authenticate the user
+
         // Send back a success message
         res.json({ message: 'Logged in successfully' });
     } catch (error) {
