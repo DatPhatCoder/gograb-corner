@@ -9,18 +9,12 @@ const CreateAccountPage = ({ navigation }) => {
       <Image source={require('../imgs/loginpage_pic1.png')} style={styles.image} />
       <Text style={styles.title}>Get your snack today!</Text>
       <Text style={styles.subtitle}>Walk around the corner for a grub</Text>
-      <TouchableOpacity style={styles.buttonEmail} onPress={() => {/* TODO: Implement sign-up with email */}}>
+      <TouchableOpacity style={styles.buttonEmail} onPress={() => {navigation.navigate('Order')}}>
         <Text style={styles.buttonText}>Sign up with email</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.buttonGoogle} onPress={() => {/* TODO: Implement sign-up with Google */}}>
         <Text style={styles.buttonText}>Sign up with Google</Text>
       </TouchableOpacity>
-      <View style={styles.loginContainer}>
-        <Text style={styles.loginText}>have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Text style={styles.loginButton}>log in</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 };

@@ -72,11 +72,12 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   header: {
-    fontSize: 30,
+    fontSize: 40,
     fontWeight: 'bold',
     color: 'white',
     padding: 20,
     textAlign: 'center',
+    fontFamily: 'Inter-Black',
     
   },
   locationItem: {

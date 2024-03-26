@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,8 @@ import {
   FlatList,
   SafeAreaView,
 } from 'react-native';
+import {CartContext} from '../CartContext';
+
 
 
 // Dummy data
@@ -21,6 +23,7 @@ const products = [
 
 
   const OrderMenuPage = ({ navigation }) => {
+    const { cart, addToCart,removeFromCart } = useContext(CartContext);
     const renderItem = ({ item }) => (
       <View style={styles.itemContainer}>
         <Image source={item.image} style={styles.productImage} />
@@ -28,7 +31,16 @@ const products = [
           <Text style={styles.productName}>{item.name}</Text>
           <Text style={styles.productPrice}>{item.price}</Text>
         </View>
-        <TouchableOpacity style={styles.addButton} onPress={() => {/* TODO: handle add to cart logic */}}>
+        {/* Minus Button */}
+      <TouchableOpacity
+        style={styles.minusButton}
+        onPress={() => { removeFromCart(item); }} // Use removeFromCart here
+      >
+        <Text style={styles.minusButtonText}>-</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.addButton}
+        onPress={() => {addToCart(item);}}>
           <Text style={styles.addButtonText}>+</Text>
         </TouchableOpacity>
       </View>
@@ -80,8 +92,8 @@ const products = [
   
   const styles = StyleSheet.create({
     backIcon: {
-      width: 25, // Adjust as needed
-      height: 25, // Adjust as needed
+      width: 25,
+      height: 25,
       justifyContent: 'center',
     },
     Pagetitle:{
@@ -92,9 +104,9 @@ const products = [
 
     checkoutButton: {
       backgroundColor: 'white',
-      paddingVertical: 10,
+      paddingVertical: 20,
       paddingHorizontal: 20,
-      borderRadius: 20,
+      borderRadius: 50,
       justifyContent: 'center',
       alignItems: 'center',
       marginVertical: 10,
@@ -113,6 +125,7 @@ const products = [
     navIcon: {
       width: 30,
       height: 30,
+      // Adjust the size as needed
     },
 title:{
     justifyContent: 'center',
@@ -171,7 +184,7 @@ title:{
   },
   addButton: {
     backgroundColor: '#4B9CD3',
-    padding: 5,
+    padding: 2,
     width: 24,
     height: 24,
     alignItems: 'center',
@@ -184,6 +197,22 @@ title:{
     fontWeight: 'bold',
     lineHeight: 24,
   },
+  minusButton: {
+    backgroundColor: '#FF6347',
+    padding: 2,
+    width: 24,
+    height: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+    marginRight: 10,
+  },
+  minusButtonText: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    lineHeight: 24,
+  }
 });
 
 export default OrderMenuPage;

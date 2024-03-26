@@ -1,42 +1,41 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  SafeAreaView,
-} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { useCart } from '../CartContext';
 
 const CheckoutPage = ({ navigation }) => {
+  const { cart } = useCart(); 
+
+  // Generate a list of cart items with their quantities
+  const renderCartItems = () => {
+    const cartItems = [];
+    for (const id in cart) {
+      cartItems.push(
+        <Text style={styles.cartItemText} key={id}>
+          {cart[id].name}: {cart[id].quantity}
+        </Text>
+      );
+    }
+    return cartItems.length ? cartItems : <Text style={styles.cartItemText}>Your cart is empty.</Text>;
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header with back arrow and title */}
+      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Image
-            source={require('../imgs/undo.png')}
-            style={styles.backIcon}
-          />
+          <Image source={require('../imgs/undo.png')} style={styles.backIcon} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Checkout</Text>
       </View>
 
+      {/* Cart Items */}
       <View style={styles.contentContainer}>
-        {/*checkout content here */}
+        {renderCartItems()}
       </View>
 
-      {/* Bottom Navigation identical to OrderMenuPage */}
+      {/* Bottom Navigation */}
       <View style={styles.bottomNav}>
-        <TouchableOpacity onPress={() => navigation.navigate('Order')}>
-          <Image source={require('../imgs/orderpageimgs/menuicon.png')} style={styles.navIcon} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Storage')}>
-          <Image source={require('../imgs/orderpageimgs/storageicon.png')} style={styles.navIcon} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
-          <Image source={require('../imgs/orderpageimgs/settingsicon.png')} style={styles.navIcon} />
-        </TouchableOpacity>
+        {/* ...other navigation buttons... */}
       </View>
     </SafeAreaView>
   );
@@ -80,6 +79,12 @@ const styles = StyleSheet.create({
   navIcon: {
     width: 30,
     height: 30,
+  },
+  cartItemText: {
+    fontSize: 16,
+    color: '#FFF',
+    margin: 8,
+    marginLeft: 16,
   },
 });
 
