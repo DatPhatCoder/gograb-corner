@@ -15,6 +15,11 @@ app.use(authRoutes);
 app.use(userRoutes);
 app.use(vendingMachineRoutes);
 app.use(inventoryRoutes);
+app.use(locationRoutes);
+app.use(paymentRoutes);
+app.use(checkoutRoutes);
+
+// TODO Handle cors as needed
 
 // Route for Home
 app.get('/', (req, res) => {
