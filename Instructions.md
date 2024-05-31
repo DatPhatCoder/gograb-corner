@@ -44,6 +44,7 @@ So that they can add product quantities through the app to the database
 Draft for Tables.... 
 
 https://aiven.io/docs/products/postgresql/get-started
+https://blog.logrocket.com/crud-rest-api-node-js-express-postgresql/
 
 ### product
 

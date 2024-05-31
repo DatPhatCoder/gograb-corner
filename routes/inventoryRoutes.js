@@ -8,7 +8,9 @@ router.get('/inventoryController', inventoryController.getInventory);
 router.get('/getInventory', inventoryController.getInventory);
 
 router.post('/addInventory', inventoryController.addInventory);
-router.post('/removeInventory', inventoryController.removeInventory);
+router.put('/updateInventory', inventoryController.updateInventory);
+router.delete('/removeInventory', inventoryController.removeInventory);
+
 
 
 module.exports = router;

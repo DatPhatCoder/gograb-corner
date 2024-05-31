@@ -1,3 +1,7 @@
+# plain text passwords are here. 
+db/dbHandler.js
+db/*
+
 # Logs
 logs
 *.log

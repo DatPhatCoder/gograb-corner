@@ -1,5 +1,5 @@
 /*
-Input: MachineID, productID, quantity
+Input: MachineID, productID, quantity, payment stuff.
 Output: return 4 digit code to user. Save 4 digit code to db.
 
 */
@@ -8,8 +8,8 @@ const postPayment = async (req, res) => {
         const { email, password } = req.query;
         console.log("Header Prams:" + JSON.stringify(req.query));
         console.log("Body Prams:" + JSON.stringify(req.body));
-
-        // TODO add transction to db. Include the code. 
+        // TODO confirm productID with quantity is in stock. If not, return error.
+        // TODO add transction to db under the MachineID. Include the code.
 
 
         console.log("Pretend to foobar");
