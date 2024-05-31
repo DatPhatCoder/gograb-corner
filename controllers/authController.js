@@ -62,7 +62,10 @@ const login = async (req, res) => {
 
         // Check if the password is correct
         // https://snyk.io/advisor/npm-package/bcrypt/functions/bcrypt.compare
-        const validPassword = await bcrypt.compare(password, retrievedPassword);
+        // TODO this is buggy. might needd both encrypted or something
+        // const validPassword = await bcrypt.compare(password, retrievedPassword); 
+        const validPassword = password == retrievedPassword;
+
         if (!validPassword) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }

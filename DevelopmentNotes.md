@@ -14,5 +14,5 @@ To run the backend
 Get Requests: Use a web browser to test the API.
 - `http://localhost:3000/` 
 
-Post Requests: Use the Postman extension to test the API.
+Post Requests: Use the Postman extension to test the API. Put request
 - `http://localhost:3000/login?email=TestEmail&password=TestPassword` 
